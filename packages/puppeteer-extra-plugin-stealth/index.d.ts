@@ -1,7 +1,9 @@
 export = defaultExport;
 declare function defaultExport(opts?: {
-    enabledEvasions?: Set<string>;
+    enabledEvasions?: Set<string>,
+    [propName: string]: any
 }): StealthPlugin;
+
 declare const StealthPlugin_base: typeof import("puppeteer-extra-plugin").PuppeteerExtraPlugin;
 /**
  * Stealth mode: Applies various techniques to make detection of headless puppeteer harder. 💯
