@@ -16,8 +16,15 @@ class Plugin extends PuppeteerExtraPlugin {
     return 'stealth/evasions/navigator.plugins'
   }
 
+  get defaults() {
+    const p = []
+    return {
+      plugins: p
+    }
+  }
+
   async onPageCreated(page) {
-    await page.evaluateOnNewDocument(() => {
+    await page.evaluateOnNewDocument(opts => {
       function mockPluginsAndMimeTypes() {
         /* global MimeType MimeTypeArray PluginArray */
 
@@ -82,23 +89,7 @@ class Plugin extends PuppeteerExtraPlugin {
               __pluginName: 'Native Client'
             }
           ],
-          plugins: [
-            {
-              name: 'Chrome PDF Plugin',
-              filename: 'internal-pdf-viewer',
-              description: 'Portable Document Format'
-            },
-            {
-              name: 'Chrome PDF Viewer',
-              filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai',
-              description: ''
-            },
-            {
-              name: 'Native Client',
-              filename: 'internal-nacl-plugin',
-              description: ''
-            }
-          ],
+          plugins: opts.plugins,
           fns: {
             namedItem: instanceName => {
               // Returns the Plugin/MimeType with the specified name.
@@ -204,14 +195,9 @@ class Plugin extends PuppeteerExtraPlugin {
         makeFnsNative(mockedFns)
       }
       try {
-        const isPluginArray = navigator.plugins instanceof PluginArray
-        const hasPlugins = isPluginArray && navigator.plugins.length > 0
-        if (isPluginArray && hasPlugins) {
-          return // nothing to do here
-        }
         mockPluginsAndMimeTypes()
       } catch (err) {}
-    })
+    }, this.opts)
   }
 }
 
