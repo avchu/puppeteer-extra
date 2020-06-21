@@ -20,7 +20,7 @@ class Plugin extends PuppeteerExtraPlugin {
 
   async onPageCreated(page) {
     await page.exposeFunction('exposedDebug', params => {
-      this.debug(params)
+      console.log(params)
     })
     await page.evaluateOnNewDocument(opts => {
       const originalFunction = HTMLCanvasElement.prototype.toDataURL

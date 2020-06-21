@@ -18,8 +18,10 @@ class Plugin extends PuppeteerExtraPlugin {
 
   get defaults() {
     const p = []
+    const m = []
     return {
-      plugins: p
+      plugins: p,
+      mimeTypes: m
     }
   }
 
@@ -62,33 +64,7 @@ class Plugin extends PuppeteerExtraPlugin {
         const mockedFns = []
 
         const fakeData = {
-          mimeTypes: [
-            {
-              type: 'application/pdf',
-              suffixes: 'pdf',
-              description: '',
-              __pluginName: 'Chrome PDF Viewer'
-            },
-            {
-              type: 'application/x-google-chrome-pdf',
-              suffixes: 'pdf',
-              description: 'Portable Document Format',
-              __pluginName: 'Chrome PDF Plugin'
-            },
-            {
-              type: 'application/x-nacl',
-              suffixes: '',
-              description: 'Native Client Executable',
-              enabledPlugin: Plugin,
-              __pluginName: 'Native Client'
-            },
-            {
-              type: 'application/x-pnacl',
-              suffixes: '',
-              description: 'Portable Native Client Executable',
-              __pluginName: 'Native Client'
-            }
-          ],
+          mimeTypes: opts.mimeTypes,
           plugins: opts.plugins,
           fns: {
             namedItem: instanceName => {
