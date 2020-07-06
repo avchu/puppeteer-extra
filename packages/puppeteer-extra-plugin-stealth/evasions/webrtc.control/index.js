@@ -17,71 +17,7 @@ class Plugin extends PuppeteerExtraPlugin {
   }
 
   async onPageCreated(page) {
-    await page.evaluateOnNewDocument(() => {
-      Object.defineProperty(window.navigator, 'keyboard', {
-        configurable: true,
-        enumerable: true,
-        get: function() {
-          var resp = (function() {
-            var res = {}
-            var prot = {}
-            if (res)
-              Object.defineProperty(res, 'toString', {
-                configurable: true,
-                enumerable: false,
-                get: function() {
-                  return function() {
-                    return '[object Keyboard]'
-                  }
-                }
-              })
-            if (res)
-              Object.defineProperty(res, 'valueOf', {
-                configurable: true,
-                enumerable: false,
-                get: function() {
-                  return function() {
-                    return '[object Keyboard]'
-                  }
-                }
-              })
-            prot['lock'] = (function() {
-              var res = function() {}
-              res.toString = function() {
-                return 'function () { [native code] }'
-              }
-              res.valueOf = function() {
-                return 'function () { [native code] }'
-              }
-              return res
-            })()
-            prot['unlock'] = (function() {
-              var res = function() {}
-              res.toString = function() {
-                return 'function () { [native code] }'
-              }
-              res.valueOf = function() {
-                return 'function () { [native code] }'
-              }
-              return res
-            })()
-            prot['getLayoutMap'] = (function() {
-              var res = function() {}
-              res.toString = function() {
-                return 'function () { [native code] }'
-              }
-              res.valueOf = function() {
-                return 'function () { [native code] }'
-              }
-              return res
-            })()
-            Object.setPrototypeOf(res, prot)
-            return res
-          })()
-          return resp
-        }
-      })
-    })
+    await page.evaluateOnNewDocument(() => {})
   }
 }
 

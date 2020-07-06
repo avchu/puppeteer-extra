@@ -73,14 +73,12 @@ class Plugin extends PuppeteerExtraPlugin {
                     exposedDebugTwo('WegGL FP detected: ' + arguments[0])
                     if (arguments[0] === 3415) return 0
                     else if (arguments[0] === 3414) return 24
-                    else if (arguments[0] === 35661)
-                      return config.random.items([128, 192, 256])
-                    else if (arguments[0] === 3386)
-                      return config.random.array([8192, 16384, 32768])
-                    else if (arguments[0] === 36349 || arguments[0] === 36347)
-                      return config.random.item([4096, 8192])
+                    else if (arguments[0] === 35661) return 256
+                    else if (arguments[0] === 3386) return 16384
+                    else if (arguments[0] === 36347) return 4096
+                    else if (arguments[0] === 36349) return 1024
                     else if (arguments[0] === 34047 || arguments[0] === 34921)
-                      return config.random.items([2, 4, 8, 16])
+                      return 8
                     else if (
                       arguments[0] === 7937 ||
                       arguments[0] === 33901 ||
@@ -92,7 +90,7 @@ class Plugin extends PuppeteerExtraPlugin {
                       arguments[0] === 36348 ||
                       arguments[0] === 35660
                     )
-                      return config.random.item([16, 32, 64])
+                      return 32
                     else if (
                       arguments[0] === 34076 ||
                       arguments[0] === 34024 ||
@@ -106,25 +104,14 @@ class Plugin extends PuppeteerExtraPlugin {
                       arguments[0] === 3410 ||
                       arguments[0] === 34852
                     )
-                      return config.random.item([2, 4, 8, 16])
+                      return 16
                     else if (arguments[0] === 37445) {
-                      return 'Intel'
-                    } else
-                      return config.random.item([
-                        0,
-                        2,
-                        4,
-                        8,
-                        16,
-                        32,
-                        64,
-                        128,
-                        256,
-                        512,
-                        1024,
-                        2048,
-                        4096
-                      ])
+                      return 'Google Inc.'
+                    } else if (arguments[0] === 37446) {
+                      return 'ANGLE (NVIDIA GeForce 615 Direct3D11 vs_5_0 ps_5_0)'
+                    } else {
+                      return 512
+                    }
                   }
                 })
               }
