@@ -96,7 +96,7 @@ class Plugin extends PuppeteerExtraPlugin {
                       arguments[0] === 34024 ||
                       arguments[0] === 3379
                     )
-                      return config.random.item([16384, 32768])
+                      return 32768
                     else if (
                       arguments[0] === 3413 ||
                       arguments[0] === 3412 ||
