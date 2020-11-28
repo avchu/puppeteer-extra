@@ -56,11 +56,12 @@ class Plugin extends PuppeteerExtraPlugin {
                 const bufferData = target.prototype.bufferData
                 Object.defineProperty(target.prototype, 'bufferData', {
                   value: function() {
-                    exposedDebugTwo('WegGL FP detected')
+                    
                     var index = Math.floor(config.random.value() * 10)
                     var noise =
                       0.1 * config.random.value() * arguments[1][index]
                     arguments[1][index] = arguments[1][index] + noise
+                    exposedDebugTwo('WegGL FP detected: ' +  index + ' ' + noise)
                     return bufferData.apply(this, arguments)
                   }
                 })
