@@ -114,7 +114,7 @@ class Plugin extends PuppeteerExtraPlugin {
                     } else if (arguments[0] === 37446) {
                       return 'ANGLE (NVIDIA GeForce 615 Direct3D11 vs_5_0 ps_5_0)'
                     } else {
-                      return 512=
+                      return 512
                     }
                   }
                 })
