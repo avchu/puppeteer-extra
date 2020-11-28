@@ -82,7 +82,7 @@ class Plugin extends PuppeteerExtraPlugin {
                     else if (arguments[0] === 36347) return 4096 * randomInt(4)
                     else if (arguments[0] === 36349) return 1024 * randomInt(4)
                     else if (arguments[0] === 34047 || arguments[0] === 34921)
-                      return 8 * randomInt(4)
+                      return 8
                     else if (
                       arguments[0] === 7937 ||
                       arguments[0] === 33901 ||
@@ -94,13 +94,13 @@ class Plugin extends PuppeteerExtraPlugin {
                       arguments[0] === 36348 ||
                       arguments[0] === 35660
                     )
-                      return 32 * randomInt(4)
+                      return 32
                     else if (
                       arguments[0] === 34076 ||
                       arguments[0] === 34024 ||
                       arguments[0] === 3379
                     )
-                      return 32768 * randomInt(4)
+                      return 32768
                     else if (
                       arguments[0] === 3413 ||
                       arguments[0] === 3412 ||
@@ -108,13 +108,13 @@ class Plugin extends PuppeteerExtraPlugin {
                       arguments[0] === 3410 ||
                       arguments[0] === 34852
                     )
-                      return 16 * randomInt(4)
+                      return 16
                     else if (arguments[0] === 37445) {
                       return 'Google Inc.'
                     } else if (arguments[0] === 37446) {
                       return 'ANGLE (NVIDIA GeForce 615 Direct3D11 vs_5_0 ps_5_0)'
                     } else {
-                      return 512 * randomInt(4)
+                      return 512=
                     }
                   }
                 })
